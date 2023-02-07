@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion"
 import HeadLayout from "../components/Layout/Head";
 import ParallaxText from "@/components/ParallaxText";
-import Castle from '../../public/castle.png'
+import BackgroundImage from '../../public/background.jpg'
 
 const Home: NextPage = () => {
   return (
@@ -44,7 +44,7 @@ const Home: NextPage = () => {
               <p className="text-start">Reader</p>
             </motion.div>
           </div>
-          <Image className="opacity-70 brightness-75 object-cover bg-center absolute select-none z-0" src={Castle} alt="Castle background Image" fill />
+          <Image className="opacity-70 brightness-75 object-cover bg-center absolute select-none z-0" src={BackgroundImage} alt="Anime style background Image" fill />
         </section>
         <section className="py-32">
           <ParallaxText baseVelocity={-5}>I build things for the web.</ParallaxText>
