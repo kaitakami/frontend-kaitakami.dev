@@ -21,4 +21,6 @@ const config = {
     defaultLocale: "en",
   },
 };
+
+// If you're using a Content Security Policy (CSP), be sure you’ve allowed the Domain vitals.vercel-insights.com.
 export default config;
