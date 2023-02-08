@@ -1,5 +1,5 @@
 import { type AppType } from "next/dist/shared/lib/utils";
-
+import { AnimatePresence } from 'framer-motion'
 import "../styles/globals.css";
 import { Inter } from "@next/font/google";
 
@@ -10,9 +10,13 @@ const inter = Inter({
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <div className={`${inter.variable} font-sans bg-[#1f1f1f] text-white`}>
-      <Component {...pageProps} />
-    </div>
+    <AnimatePresence mode="wait" initial={true} onExitComplete={() => window.scrollTo(0, 0)}>
+      <div
+        className={`${inter.variable} font-sans bg-[#1f1f1f] text-white selection:text-pink-200 selection:bg-sky-500`}
+      >
+        <Component {...pageProps} />
+      </div>
+    </AnimatePresence>
   )
 };
 
