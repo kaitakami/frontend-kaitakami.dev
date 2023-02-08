@@ -42,7 +42,7 @@ const HeadLayout = ({ title = defaultValues.title, description = defaultValues.d
         />
         <meta property="twitter:image" content="https://i.ibb.co/dmgkBCp/meta-tags-export.png" />
       </Head>
-      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_TRACKING_CODE}`} />
+      <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-LQTC9VDE37" />
       <Script
         id="google-analytics"
         strategy="afterInteractive"
@@ -51,7 +51,7 @@ const HeadLayout = ({ title = defaultValues.title, description = defaultValues.d
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', ${process.env.GOOGLE_ANALYTICS_TRACKING_CODE}, {
+            gtag('config', "G-LQTC9VDE37", {
               page_path: window.location.pathname,
             });
           `,
