@@ -5,8 +5,8 @@ import HeadLayout from "../components/Layout/Head";
 import ParallaxText from "@/components/ParallaxText";
 import BackgroundImage from '../../public/background.jpg'
 import PhoneImage from "../../public/phonebackground.png"
-import NoScrollLink from "@/components/NoScrollLink";
 import Animate from "@/components/Layout/Animate";
+import BottomSection from '../components/home/BottomSection';
 
 const Home: NextPage = () => {
   return (
@@ -17,8 +17,8 @@ const Home: NextPage = () => {
           <section className="relative min-h-screen pb-32">
             <div className="flex min-h-screen justify-center max-w-5xl mx-auto md:px-2 flex-col absolute left-0 right-0 px-8">
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ duration: 1.5, delay: 1.5 }}
                 className="z-10 drop-shadow-2xl"
               >
@@ -60,56 +60,7 @@ const Home: NextPage = () => {
           <section className="py-32 bg-zinc-900">
             <ParallaxText baseVelocity={-5}>I build things for the web.</ParallaxText>
           </section>
-          <section className="relative py-32 max-w-6xl mx-auto">
-            <div className="absolute flex justify-end w-full">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1 }}
-                viewport={{ once: true }}
-              >
-                <p className="opacity-5 sm:opacity-20 select-none text-6xl sm:text-8xl md:text-[10rem]
-            font-bold text-end leading-snug pr-2 sm:pr-5 md:pr-32 right-0">kaitakami<br />.dev</p>
-              </motion.div>
-            </div>
-            <div className="py-8 sm:py-28 px-3 flex flex-wrap md:gap-20 gap-8 md:text-6xl text-4xl font-bold">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className=" z-10"
-              >
-                <button className="z-10">/Blog</button>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                viewport={{ once: true }}
-                className=" z-10"
-              >
-                <button className=" text-gray-500 z-10">/Projects</button>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1 }}
-                viewport={{ once: true }}
-                className=" z-10"
-              >
-                <button className="text-gray-500">/Contact</button>
-              </motion.div>
-            </div>
-            <div className="my-20">
-              <NoScrollLink href="/blog">Check this out</NoScrollLink>
-            </div>
-            <div>
-              <div className="h-56 w-80 sm:w-96 bg-gray-800 rounded-md">
-                This website is in construction!
-              </div>
-            </div>
-          </section>
+          <BottomSection />
         </main>
       </Animate>
     </>
@@ -117,3 +68,53 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+interface Blog {
+  id: string
+  title: string
+  description: string
+  category: {
+    name: string
+    slug: string
+    color: {
+      css: string
+    }
+  }
+  slug: string
+  publishedAt: string
+}
+
+import { graphQLFetch } from "@/utils/graphQLFetch";
+import { GetServerSideProps } from "next";
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  const ENDPOINT = 'https://us-west-2.cdn.hygraph.com/content/cldwln9ha2j1f01rrfaib8ave/master'
+  locale ||= 'en'
+  const query = `
+                query Blog {
+                  blogs(last: 5, locales: ${locale}) {
+                    id
+                    title
+                    description
+                    category {
+                      name
+                      slug
+                      color {
+                        css
+                      }
+                    }
+                    slug
+                    publishedAt
+                  }
+                }
+              `
+
+  const { blogs } = await graphQLFetch<{ blogs: Blog[] }>
+
+    (ENDPOINT, query)
+  console.log(blogs)
+
+  return {
+    props: {}
+  }
+}
