@@ -38,19 +38,20 @@ export default function ParallaxText({ children, baseVelocity = 100 }: ParallaxP
 
   const directionFactor = useRef<number>(1);
   useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+    const moveBy = directionFactor.current * baseVelocity * (delta / 1100);
 
     /**
      * This is what changes the direction of the scroll once we
      * switch scrolling directions.
      */
-    if (velocityFactor.get() < 0) {
-      directionFactor.current = -1;
-    } else if (velocityFactor.get() > 0) {
-      directionFactor.current = 1;
-    }
+    directionFactor.current = -1;
+    // if (velocityFactor.get() < 0) {
+    //   directionFactor.current = -1;
+    // } else if (velocityFactor.get() > 0) {
+    //   directionFactor.current = 1;
+    // }
 
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    // moveBy += directionFactor.current * moveBy * velocityFactor.get();
 
     baseX.set(baseX.get() + moveBy);
   });
