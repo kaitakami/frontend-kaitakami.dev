@@ -1,6 +1,6 @@
 export async function graphQLFetch<T extends GraphQlData>(
-  url: string,
   query: string,
+  url = "https://us-west-2.cdn.hygraph.com/content/cldwln9ha2j1f01rrfaib8ave/master",
   variables = {}
 ): Promise<T> {
   const res = await fetch(url, {
@@ -21,7 +21,7 @@ export async function graphQLFetch<T extends GraphQlData>(
   return graphQlRes.data;
 }
 
-type GraphQlData = { [key: string]: any, [index: number]: never };
+type GraphQlData = { [key: string]: any; [index: number]: never };
 interface GraphQlResponse<T extends GraphQlData> {
   data: T;
   errors?: Array<{ message: string }>;
