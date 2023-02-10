@@ -14,7 +14,6 @@ const HeadLayout = ({ title = defaultValues.title, description = defaultValues.d
       <Head>
         <title>{title}</title>
         <meta name="title" content={title} />
-        <link rel="apple-touch-icon" href="https://ibb.co/D9M0KLT"></link>
         <meta
           name="description"
           content={description}
