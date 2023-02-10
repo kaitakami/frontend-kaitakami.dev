@@ -82,7 +82,7 @@ const BottomSection: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
       </div>
       <div className='my-20'>
         <Link href="/blog" className='transition-all text-white/80 hover:text-white hover:-translate-y-3 text-xl flex w-fit'>
-          <p className='my-auto px-3'>See more</p>
+          <p className='my-auto px-3'>View all blogs</p>
           <IconExternalLink size={36} stroke={1} />
         </Link>
       </div>

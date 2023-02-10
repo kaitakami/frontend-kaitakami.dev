@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://kaitakami.dev</loc><lastmod>2023-02-10T08:29:05.319Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://kaitakami.dev/blog</loc><lastmod>2023-02-10T08:29:05.319Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://kaitakami.dev/es</loc><lastmod>2023-02-10T08:29:05.319Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://kaitakami.dev/blog/development/this-is-a-test</loc><lastmod>2023-02-10T08:29:05.319Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://kaitakami.dev/blog/code/how-i-built-this-website</loc><lastmod>2023-02-10T08:29:05.319Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://kaitakami.dev/blog/personal/how-is-living-in-japan</loc><lastmod>2023-02-10T08:29:05.319Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://kaitakami.dev/blog/code/how-to-learn-to-code</loc><lastmod>2023-02-10T08:29:05.319Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://kaitakami.dev/es/blog/desarrollo/esto-es-un-test</loc><lastmod>2023-02-10T08:29:05.319Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://kaitakami.dev/es/blog/codigo/como-cree-mi-sitio-web</loc><lastmod>2023-02-10T08:29:05.319Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://kaitakami.dev/es/blog/personal/como-es-vivir-en-japon</loc><lastmod>2023-02-10T08:29:05.319Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://kaitakami.dev/es/blog/codigo/como-aprender-a-programar</loc><lastmod>2023-02-10T08:29:05.319Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>

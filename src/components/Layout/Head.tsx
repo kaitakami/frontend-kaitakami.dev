@@ -14,16 +14,17 @@ const HeadLayout = ({ title = defaultValues.title, description = defaultValues.d
       <Head>
         <title>{title}</title>
         <meta name="title" content={title} />
+        <link rel="apple-touch-icon" href="https://ibb.co/D9M0KLT"></link>
         <meta
           name="description"
           content={description}
         />
         <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         {/* TODO change meta language depending on locale */}
         <meta name="language" content="English" />
         <meta name="author" content="Kai Takami" />
-
+        <meta name="theme-color" content="#1f1f1f" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://kaitakami.dev/" />
         <meta property="og:title" content={title} />
@@ -41,7 +42,14 @@ const HeadLayout = ({ title = defaultValues.title, description = defaultValues.d
           content={description}
         />
         <meta property="twitter:image" content="https://i.ibb.co/dmgkBCp/meta-tags-export.png" />
+
+        {/* Favicon */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+        <meta name="msapplication-TileColor" content="#1f1f1f" />
       </Head>
+      {/* Google Analytics */}
       <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-LQTC9VDE37" />
       <Script
         id="google-analytics"
