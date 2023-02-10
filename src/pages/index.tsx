@@ -8,7 +8,8 @@ import PhoneImage from "../../public/phonebackground.png"
 import Animate from "@/components/Layout/Animate";
 import BottomSection from '../components/home/BottomSection';
 
-const Home: NextPage = () => {
+const Home: NextPage<{ blogs: Blog[] }> = ({ blogs }) => {
+
   return (
     <>
       <HeadLayout />
@@ -54,13 +55,13 @@ const Home: NextPage = () => {
                 <p className="text-start drop-shadow-2xl">Reader</p>
               </motion.div>
             </div>
-            <Image className="md:hidden opacity-70 brightness-75 object-cover bg-center absolute select-none z-0" src={PhoneImage} alt="Anime style background Image" fill />
+            <Image className="md:hidden opacity-70 brightness-75 object-cover bg-center absolute select-none z-0" src={PhoneImage} alt="Anime style background Image for phone" fill sizes="100wv" />
             <Image className="hidden md:block opacity-70 brightness-75 object-cover bg-center absolute select-none z-0" src={BackgroundImage} alt="Anime style background Image" fill />
           </section>
           <section className="py-32 bg-zinc-900">
             <ParallaxText baseVelocity={-5}>I build things for the web.</ParallaxText>
           </section>
-          <BottomSection />
+          <BottomSection blogs={blogs} />
         </main>
       </Animate>
     </>
@@ -76,19 +77,16 @@ interface Blog {
   category: {
     name: string
     slug: string
-    color: {
-      css: string
-    }
   }
   slug: string
   publishedAt: string
 }
 
 import { graphQLFetch } from "@/utils/graphQLFetch";
-import { GetServerSideProps } from "next";
+import type { GetStaticProps } from "next";
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-  const ENDPOINT = 'https://us-west-2.cdn.hygraph.com/content/cldwln9ha2j1f01rrfaib8ave/master'
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   locale ||= 'en'
   const query = `
                 query Blog {
@@ -99,9 +97,6 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
                     category {
                       name
                       slug
-                      color {
-                        css
-                      }
                     }
                     slug
                     publishedAt
@@ -109,12 +104,11 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
                 }
               `
 
-  const { blogs } = await graphQLFetch<{ blogs: Blog[] }>
-
-    (ENDPOINT, query)
-  console.log(blogs)
-
+  const { blogs } = await graphQLFetch<{ blogs: Blog[] }>(query)
   return {
-    props: {}
+    props: {
+      blogs
+    },
+    revalidate: 3600 * 24 // revalidate every day at most
   }
 }
