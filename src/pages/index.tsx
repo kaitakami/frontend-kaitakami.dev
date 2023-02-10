@@ -3,8 +3,8 @@ import Image from "next/image";
 import { motion } from "framer-motion"
 import HeadLayout from "../components/Layout/Head";
 import ParallaxText from "@/components/ParallaxText";
-import BackgroundImage from '../../public/background.jpg'
-import PhoneImage from "../../public/phonebackground.png"
+import BackgroundImage from '../../public/background.webp'
+import PhoneImage from "../../public/phoneBackground.webp"
 import Animate from "@/components/Layout/Animate";
 import BottomSection from '../components/home/BottomSection';
 
