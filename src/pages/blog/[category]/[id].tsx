@@ -3,20 +3,33 @@ import type { NextPage } from 'next'
 import type { GetStaticProps } from 'next'
 import type { GetStaticPaths } from 'next'
 import { graphQLFetch } from '@/utils/graphQLFetch'
+import HeadLayout from '@/components/Layout/Head'
+import Animate from '@/components/Layout/Animate'
+import Layout from '@/components/Layout/Layout'
+import { marked } from 'marked'
 
 const BlogPage: NextPage<{ blog: Blog }> = ({ blog }) => {
+  const MDX = marked(blog.content)
   const publishedDate = new Date(blog.updatedAt).toDateString()
   return (
-    <div>
-      <h1>{blog.title}</h1>
-      <p>{publishedDate}</p>
-      <p>{blog.category.name}</p>
-      <hr />
-      <p>
-        {blog.content}
-      </p>
-      aaaa
-    </div>
+    <>
+      <HeadLayout title={blog.title} />
+      <Animate>
+        <>
+          <Layout>
+            <>
+              <div className="max-w-2xl px-5 md:px-0 m-auto flex flex-col gap-6">
+                <h1 className="text-3xl font-bold">{blog.title}</h1>
+                <span className='border w-fit rounded-sm border-white/5 px-4 py-3 transition-all group-hover:bg-zinc-800 text-gray-200'>/{blog.category.name}</span>
+                <p className='text-sm text-gray-400'>{publishedDate}</p>
+                <hr className='border-gray-800' />
+                <div dangerouslySetInnerHTML={{ __html: MDX }} />
+              </div>
+            </>
+          </Layout>
+        </>
+      </Animate>
+    </>
   )
 }
 
@@ -46,8 +59,6 @@ export const getStaticPaths: GetStaticPaths = async ({ locales = ['en', 'es'] })
     const { blogs } = await graphQLFetch<{ blogs: BlogPath[] }>(query)
     return blogs
   }))).flat()
-
-  console.log(rawPaths)
 
   const paths = rawPaths.map((path) => ({
     params: { category: path.category.slug, id: path.slug },
