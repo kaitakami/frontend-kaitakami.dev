@@ -54,3 +54,22 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #979797;
 }
+
+/* CODE */
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #f8f8f2;
+}
+
+pre {
+  background-color: #1e1e1e;
+  border-radius: 4px;
+  color: #f8f8f2;
+  padding: 1em;
+  overflow-x: auto;
+}
