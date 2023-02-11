@@ -12,7 +12,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <AnimatePresence mode="wait" initial={true} onExitComplete={() => window.scrollTo(0, 0)}>
       <div
-        className={`${inter.variable} font-sans bg-[#1f1f1f] text-white selection:text-pink-200 selection:bg-sky-500`}
+        className={`${inter.variable} font-sans bg-[#1f1f1f] text-white selection:bg-fuchsia-400 min-h-screen relative`}
       >
         <Component {...pageProps} />
       </div>
