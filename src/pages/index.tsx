@@ -10,8 +10,7 @@ import Nav from "@/components/Layout/Nav";
 import BottomSection from '../components/home/BottomSection';
 import Footer from "@/components/Layout/Footer";
 
-const Home: NextPage<{ blogs: Blog[] }> = ({ blogs }) => {
-
+const Home: NextPage<{ blogs: Blog[], projects: Project[] }> = ({ blogs, projects }) => {
   return (
     <>
       <HeadLayout />
@@ -65,7 +64,7 @@ const Home: NextPage<{ blogs: Blog[] }> = ({ blogs }) => {
             <section className="py-32 bg-zinc-900">
               <ParallaxText baseVelocity={-5}>I build things for the web.</ParallaxText>
             </section>
-            <BottomSection blogs={blogs} />
+            <BottomSection blogs={blogs} projects={projects} />
           </main>
           <Footer />
         </>
@@ -88,6 +87,15 @@ interface Blog {
   publishedAt: string
 }
 
+interface Project {
+  title: string,
+  stack: string,
+  id: string,
+  updatedAt: string,
+  slug: string
+  description: string
+}
+
 import { graphQLFetch } from "@/utils/graphQLFetch";
 import type { GetStaticProps } from "next";
 
@@ -95,7 +103,7 @@ import type { GetStaticProps } from "next";
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   locale ||= 'en'
   const query = `
-                query Blog {
+                query Homepage {
                   blogs(last: 5, locales: ${locale}) {
                     id
                     title
@@ -107,13 +115,22 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
                     slug
                     publishedAt
                   }
+                  projects(last: 5, locales: ${locale}) {
+                    title
+                    stack
+                    id
+                    updatedAt
+                    slug
+                    description
+                  }
                 }
               `
 
-  const { blogs } = await graphQLFetch<{ blogs: Blog[] }>(query)
+  const { blogs, projects } = await graphQLFetch<{ blogs: Blog[], projects: Project[] }>(query)
   return {
     props: {
-      blogs
+      blogs,
+      projects
     },
     revalidate: 3600 * 24 // revalidate every day at most
   }
