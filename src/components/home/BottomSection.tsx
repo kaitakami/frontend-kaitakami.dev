@@ -17,6 +17,15 @@ interface Blog {
   publishedAt: string
 }
 
+interface Project {
+  title: string,
+  stack: string,
+  id: string,
+  updatedAt: string,
+  slug: string
+  description: string
+}
+
 interface Selected {
   blog: boolean
   projects: boolean
@@ -24,7 +33,7 @@ interface Selected {
 }
 
 
-const BottomSection: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
+const BottomSection: React.FC<{ blogs: Blog[], projects: Project[] }> = ({ blogs, projects }) => {
   const [selected, setSelected] = useState<Selected>({
     blog: true,
     projects: false,
@@ -87,9 +96,9 @@ const BottomSection: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
           <button className={`${selected.contact ? selectedClasses : 'transition-all duration-500'}`} onClick={() => handleSelected('contact')}>/Contact</button>
         </motion.div>
       </div>
-      <div className='pb-20' id='contact'>
+      <div className='pb-20 min-h-[500px]' id='contact'>
         {selected.blog && <Blogs blogs={blogs} />}
-        {selected.projects && <Projects />}
+        {selected.projects && <Projects projects={projects} />}
         {selected.contact && <Contact />}
       </div>
     </section>
