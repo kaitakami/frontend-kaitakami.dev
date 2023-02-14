@@ -10,7 +10,6 @@ interface Project {
 }
 
 const Projects: React.FC<{ projects: Project[] }> = ({ projects }) => {
-  console.log(projects)
   return (
     <>
       <Link href="/project" className='transition-all text-white/80 hover:text-white hover:-translate-y-3 text-xl flex w-fit pb-20 z-10'>
