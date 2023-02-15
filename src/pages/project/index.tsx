@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { useState } from "react"
 import { motion } from "framer-motion"
 import Animate from "@/components/Layout/Animate"
 import { graphQLFetch } from "@/utils/graphQLFetch"
