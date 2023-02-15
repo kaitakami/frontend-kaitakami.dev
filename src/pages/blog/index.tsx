@@ -36,7 +36,6 @@ const Blog: NextPage<{ blogs: Blog[], categories: Category[] }> = ({ blogs, cate
       setFilteredBlogs(filtered)
     }
   }
-  console.log(blogs[0])
 
   return (
     <>
@@ -45,7 +44,7 @@ const Blog: NextPage<{ blogs: Blog[], categories: Category[] }> = ({ blogs, cate
         <>
           <Layout>
             <>
-              <div className="max-w-2xl px-5 md:px-0 m-auto flex flex-col gap-6 pb-32 space-y-5">
+              <div className="max-w-2xl px-5 md:px-0 m-auto flex flex-col gap-6 space-y-5">
                 <h1 className="text-6xl font-bold">Blog</h1>
                 {/* Filter blogs by category */}
                 <form className="flex gap-3">
