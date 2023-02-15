@@ -6,7 +6,7 @@ import { IconGhost, IconGhostOff } from "@tabler/icons-react";
 const links = [
   { name: "Home", to: "/" },
   { name: "Blog", to: "/blog" },
-  { name: "Projects", to: "/projects" },
+  { name: "Projects", to: "/project" },
 ];
 
 const itemVariants = {
