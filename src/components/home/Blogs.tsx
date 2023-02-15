@@ -33,9 +33,9 @@ const Blogs: React.FC<{ blogs: Blog[] }> = ({ blogs }) => {
               viewport={{ once: true }}
               className="w-80 sm:w-96 group bg-transparent px-6 pb-8 shadow-xl ring-1 ring-slate-200/10 transition-all duration-300 hover:shadow-2xl sm:rounded-lg sm:px-10 h-56 hover:scale-105 py-3">
               <div className=" space-y-2 pt-5 text-base leading-7 text-slate-300 transition-all duration-300 group-hover:text-white/90 flex justify-between flex-col h-full">
-                <div>
+                <div className="space-y-2">
                   <h1 className="font-bold text-xl text-white drop-shadow-2xl">{blog.title}</h1>
-                  <p className=''>{blog.description}</p>
+                  <p className='truncate'>{blog.description}</p>
                 </div>
                 <div className='capitalize'>
                   <span className='border rounded-sm border-white/5 px-4 py-3 transition-all group-hover:bg-zinc-800'>/{blog.category.name}</span>
