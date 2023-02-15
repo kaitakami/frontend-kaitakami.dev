@@ -20,6 +20,9 @@ const config = {
     locales: ["en", "es"],
     defaultLocale: "en",
   },
+  images: {
+    domains: ["media.graphassets.com"]
+  }
 };
 
 // If you're using a Content Security Policy (CSP), be sure you’ve allowed the Domain vitals.vercel-insights.com.
