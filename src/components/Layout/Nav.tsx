@@ -30,7 +30,7 @@ const sideVariants = {
     }
   }
 };
-const Nav = () => {
+const Nav = ({ delay = 0 }) => {
   const { scrollY } = useScroll();
   /** this hook manages state **/
   const [hidden, setHidden] = useState(false);
@@ -68,7 +68,7 @@ const Nav = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 2, delay: 3 }}
+      transition={{ duration: 2, delay }}
     >
       <motion.nav /** the variants object needs to be passed into the motion component **/
         variants={variants}

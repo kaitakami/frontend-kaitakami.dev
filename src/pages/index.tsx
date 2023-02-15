@@ -16,7 +16,7 @@ const Home: NextPage<{ blogs: Blog[], projects: Project[] }> = ({ blogs, project
       <HeadLayout />
       <Animate>
         <>
-          <Nav />
+          <Nav delay={3} />
           <main>
             <section className="relative min-h-screen pb-32">
               <div className="flex min-h-screen justify-center max-w-5xl mx-auto md:px-2 flex-col absolute left-0 right-0 px-8">
