@@ -7,7 +7,7 @@ const Layout: React.FC<{ children: JSX.Element }> = ({ children }) => {
   return (
     <>
       <Nav />
-      <div className="pt-24">
+      <div className="pt-24 pb-52">
         {children}
       </div>
       <Footer />
