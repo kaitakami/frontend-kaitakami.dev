@@ -73,3 +73,37 @@ pre {
   padding: 1em;
   overflow-x: auto;
 }
+
+/* MDX content */
+.mdx ul {
+  list-style: circle;
+  padding-left: 1rem;
+}
+
+.mdx li {
+  margin-bottom: 0.5rem;
+}
+
+.mdx h1,
+.mdx h2,
+.mdx h3 {
+  color: #fff;
+}
+
+.mdx h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.mdx h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.mdx h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
