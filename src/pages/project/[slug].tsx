@@ -95,8 +95,8 @@ interface Project {
   }]
 
   updatedAt: string
-  demo: string
-  github: string
+  demo?: string
+  github?: string
   image: {
     url: string
   }
