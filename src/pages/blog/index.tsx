@@ -47,7 +47,7 @@ const Blog: NextPage<{ blogs: Blog[], categories: Category[] }> = ({ blogs, cate
               <div className="max-w-2xl px-5 md:px-0 m-auto flex flex-col gap-6 space-y-5">
                 <h1 className="text-6xl font-bold">Blog</h1>
                 {/* Filter blogs by category */}
-                <form className="flex gap-3">
+                <form className="flex gap-3 px-3 flex-col sm:flex-row flex-wrap">
                   {categories.map(category => (
                     <div key={category.id} className="flex gap-2">
                       <input
@@ -62,7 +62,7 @@ const Blog: NextPage<{ blogs: Blog[], categories: Category[] }> = ({ blogs, cate
                     </div>
                   ))}
                 </form>
-                  <hr className='border-gray-800' />
+                <hr className='border-gray-800' />
                 <div className="flex flex-wrap gap-7 justify-between pb-20">
                   {/* Display filtered blogs */}
                   {filteredBlogs.map((blog, index) => (
@@ -74,7 +74,7 @@ const Blog: NextPage<{ blogs: Blog[], categories: Category[] }> = ({ blogs, cate
                       <motion.div
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0 + (index / 35)  }}
+                        transition={{ duration: 0.5, delay: 0 + (index / 35) }}
                         className="group bg-transparent px-6 pb-8 shadow-xl ring-1 ring-slate-200/10 transition-all duration-300 hover:shadow-2xl sm:rounded-lg sm:px-10 hover:scale-105 py-3">
                         <div className="pt-5 text-base leading-7 text-slate-300 transition-all duration-300 group-hover:text-white/90 flex justify-between flex-col h-full space-y-8">
                           <div className="space-y-2">
@@ -84,7 +84,7 @@ const Blog: NextPage<{ blogs: Blog[], categories: Category[] }> = ({ blogs, cate
                           <div className='capitalize'>
                             <span className='border rounded-sm border-white/5 px-4 py-3 transition-all group-hover:bg-zinc-800'>/{blog.category.name}</span>
                           </div>
-                            <p className='truncate text-sm absolute right-0 bottom-0 p-5 text-gray-500'>{new Date(blog.publishedAt).toDateString()}</p>
+                          <p className='truncate text-sm absolute right-0 bottom-0 p-5 text-gray-500'>{new Date(blog.publishedAt).toDateString()}</p>
                         </div>
                       </motion.div>
                     </Link>
