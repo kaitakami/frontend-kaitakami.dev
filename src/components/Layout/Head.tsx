@@ -64,6 +64,8 @@ const HeadLayout = ({ title = defaultValues.title, description = defaultValues.d
           `,
         }}
       />
+      {/* Umami Analytics */}
+      <Script async defer data-website-id="9172449d-890b-4644-b251-6391b200f8d7" src="https://umami.kaitakami.dev/umami.js" />
     </>
   )
 }
