@@ -19,20 +19,21 @@ const Home: NextPage<{ blogs: Blog[], projects: Project[] }> = ({ blogs, project
           <Nav delay={3} />
           <main>
             <section className="relative min-h-screen pb-32">
-              <div className="flex min-h-screen justify-center max-w-5xl mx-auto md:px-2 flex-col absolute left-0 right-0 px-8">
+              <div className="absolute left-0 right-0 flex flex-col justify-center max-w-5xl min-h-screen px-8 mx-auto md:px-2">
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, scale: 1, x: 0 }}
                   transition={{ duration: 1.5, delay: 1.5 }}
                   className="z-10 drop-shadow-2xl"
                 >
-                  <h1 className="py-4 font-semibold text-lg">About</h1>
+                  <h1 className="sr-only">Kai Takami</h1>
+                  <h2 className="py-4 text-lg font-semibold">About</h2>
                   <p className="w-72 sm:w-80 md:w-96 text-slate-200 opacity-95">
                     Full-stack developer based in Japan specializing in creating intuitive websites and applications. Sharing knowledge and thoughts on web development and personal growth through my blog. I love startups, books and people. I spend most of my time building things for the web.
                   </p>
                 </motion.div>
               </div>
-              <div className="font-black text-6xl sm:text-8xl md:text-9xl text-shadow text-transparent max-w-5xl mx-auto flex flex-col justify-around min-h-screen px-2 select-none md:opacity-80 opacity-40">
+              <div className="flex flex-col justify-around max-w-5xl min-h-screen px-2 mx-auto text-6xl font-black text-transparent select-none sm:text-8xl md:text-9xl text-shadow md:opacity-80 opacity-40">
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -58,8 +59,8 @@ const Home: NextPage<{ blogs: Blog[], projects: Project[] }> = ({ blogs, project
                   <p className="text-start drop-shadow-2xl">Reader</p>
                 </motion.div>
               </div>
-              <Image className="md:hidden opacity-70 brightness-75 object-cover bg-center absolute select-none z-0" src={PhoneImage} alt="Anime style background Image for phone" fill sizes="100wv" />
-              <Image className="hidden md:block opacity-70 brightness-75 object-cover bg-center absolute select-none z-0" src={BackgroundImage} alt="Anime style background Image" fill />
+              <Image className="absolute z-0 object-cover bg-center select-none md:hidden opacity-70 brightness-75" src={PhoneImage} alt="Anime style background Image for phone" fill sizes="100wv" />
+              <Image className="absolute z-0 hidden object-cover bg-center select-none md:block opacity-70 brightness-75" src={BackgroundImage} alt="Anime style background Image" fill />
             </section>
             <section className="py-32 bg-zinc-900">
               <ParallaxText baseVelocity={-5}>I build things for the web.</ParallaxText>
