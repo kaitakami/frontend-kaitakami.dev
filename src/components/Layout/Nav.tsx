@@ -31,21 +31,21 @@ const sideVariants = {
   }
 };
 const Nav = ({ delay = 0 }) => {
-  const { scrollY } = useScroll();
-  /** this hook manages state **/
-  const [hidden, setHidden] = useState(false);
+    const { scrollY } = useScroll();
+    /** this hook manages state **/
+    const [hidden, setHidden] = useState(false);
 
-  /** this onUpdate function will be called in the `scrollY.onChange` callback **/
-  function update() {
-    if (scrollY?.get() <= scrollY?.getPrevious() + 1) {
-      setHidden(false);
-    } else if (scrollY?.get() >= 100 && scrollY?.get() >= scrollY?.getPrevious()) {
-      setHidden(true);
-      if (open) {
-        cycleOpen()
+    /** this onUpdate function will be called in the `scrollY.onChange` callback **/
+    function update() {
+      if (scrollY?.get() <= scrollY?.getPrevious() + 1) {
+        setHidden(false);
+      } else if (scrollY?.get() >= 100 && scrollY?.get() >= scrollY?.getPrevious()) {
+        setHidden(true);
+        if (open) {
+          cycleOpen()
+        }
       }
     }
-  }
 
   /** update the onChange callback to call for `update()` **/
   useEffect(() => {
@@ -59,8 +59,6 @@ const Nav = ({ delay = 0 }) => {
     /** this is the "hidden" key and it's correlating styles **/
     hidden: { opacity: 0, y: -25 }
   };
-
-  //
 
   const [open, cycleOpen] = useCycle(false, true);
 
