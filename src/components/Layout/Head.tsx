@@ -6,7 +6,7 @@ import Script from "next/script"
 
 const defaultValues = {
   title: "Kai Takami",
-  description: "Fullstack developer based in Japan specializing in creating intuitive websites and applications. I spend most of my time building things for the web."
+  description: "Fullstack developer based in Japan specializing in creating intuitive websites and applications. I spend most of my time building things for the web. Kai Takami."
 }
 const HeadLayout = ({ title = defaultValues.title, description = defaultValues.description }) => {
   return (
