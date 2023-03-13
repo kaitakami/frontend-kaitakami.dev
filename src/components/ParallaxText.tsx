@@ -44,7 +44,7 @@ export default function ParallaxText({ children, baseVelocity = 100 }: ParallaxP
      * This is what changes the direction of the scroll once we
      * switch scrolling directions.
      */
-    directionFactor.current = -1;
+    directionFactor.current = 1;
     // if (velocityFactor.get() < 0) {
     //   directionFactor.current = -1;
     // } else if (velocityFactor.get() > 0) {
