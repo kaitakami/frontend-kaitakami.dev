@@ -31,21 +31,21 @@ const sideVariants = {
   }
 };
 const Nav = ({ delay = 0 }) => {
-    const { scrollY } = useScroll();
-    /** this hook manages state **/
-    const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
+  /** this hook manages state **/
+  const [hidden, setHidden] = useState(false);
 
-    /** this onUpdate function will be called in the `scrollY.onChange` callback **/
-    function update() {
-      if (scrollY?.get() <= scrollY?.getPrevious() + 1) {
-        setHidden(false);
-      } else if (scrollY?.get() >= 100 && scrollY?.get() >= scrollY?.getPrevious()) {
-        setHidden(true);
-        if (open) {
-          cycleOpen()
-        }
+  /** this onUpdate function will be called in the `scrollY.onChange` callback **/
+  function update() {
+    if (scrollY?.get() <= scrollY?.getPrevious() + 1) {
+      setHidden(false);
+    } else if (scrollY?.get() >= 100 && scrollY?.get() >= scrollY?.getPrevious()) {
+      setHidden(true);
+      if (open) {
+        cycleOpen()
       }
     }
+  }
 
   /** update the onChange callback to call for `update()` **/
   useEffect(() => {
@@ -89,7 +89,7 @@ const Nav = ({ delay = 0 }) => {
                 width: 0,
                 transition: { delay: 0.7, duration: 0.3 }
               }}
-              className="bg-[#222229] h-screen left-0 top-0"
+              className="bg-stone-900 h-screen left-0 top-0"
             >
               <motion.div
                 className="absolute top-0 flex flex-col pt-24 pl-8 gap-6"
