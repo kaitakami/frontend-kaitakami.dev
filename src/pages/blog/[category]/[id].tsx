@@ -6,10 +6,9 @@ import { graphQLFetch } from '@/utils/graphQLFetch'
 import HeadLayout from '@/components/Layout/Head'
 import Animate from '@/components/Layout/Animate'
 import Layout from '@/components/Layout/Layout'
-import { marked } from 'marked'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 
 const BlogPage: NextPage<{ blog: Blog }> = ({ blog }) => {
-  const MDX = marked(blog.content)
   const publishedDate = new Date(blog.updatedAt).toDateString()
   return (
     <>
@@ -23,7 +22,9 @@ const BlogPage: NextPage<{ blog: Blog }> = ({ blog }) => {
                 <span className='border w-fit rounded-sm border-white/5 px-4 py-3 transition-all group-hover:bg-zinc-800 text-gray-200'>/{blog.category.name}</span>
                 <p className='text-sm text-gray-400'>{publishedDate}</p>
                 <hr className='border-gray-800' />
-                <div className='mdx flex gap-3 flex-col' dangerouslySetInnerHTML={{ __html: MDX }} />
+                <div className='mdx flex gap-3 flex-col'>
+                  <ReactMarkdown>{blog.content}</ReactMarkdown>
+                </div>
               </div>
             </>
           </Layout>

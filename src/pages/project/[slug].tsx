@@ -5,11 +5,9 @@ import Layout from "@/components/Layout/Layout"
 import { graphQLFetch } from "@/utils/graphQLFetch"
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { IconBrandGithub } from "@tabler/icons-react"
-import { marked } from "marked"
+import { ReactMarkdown } from "react-markdown/lib/react-markdown"
 
 const Project: NextPage<{ project: Project }> = ({ project }) => {
-  const MDX = marked(project.content)
-
   return (
     <>
       <HeadLayout title={project.title} />
@@ -38,7 +36,8 @@ const Project: NextPage<{ project: Project }> = ({ project }) => {
                       ))}
                     </div>
                   </div>
-                  <div className="mdx" dangerouslySetInnerHTML={{ __html: MDX }}>
+                  <div className="mdx">
+                    <ReactMarkdown>{project.content}</ReactMarkdown>
                   </div>
                   <div>
                     <Image src={project.image.url} alt={`${project.title} preview image`} width={1200} height={800}
