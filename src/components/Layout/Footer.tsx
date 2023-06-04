@@ -7,7 +7,7 @@ const Footer = () => {
         <Link href="/" className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Kai Takami</Link>
         <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
           <li>
-            <a href="https://linkedin.com/in/kaitakami/" className="mr-4 hover:underline md:mr-6" target='_blank' rel="noreferrer">Hire me</a>
+            <a href="https://hire.kaitakami.dev" className="mr-4 hover:underline md:mr-6" target='_blank' rel="noreferrer">Hire me</a>
           </li>
           <li>
             <a href="https://cal.com/kaitakami/" className="mr-4 hover:underline md:mr-6" target='_blank' rel="noreferrer">Talk with me</a>
